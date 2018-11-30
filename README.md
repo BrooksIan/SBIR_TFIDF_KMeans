@@ -14,10 +14,7 @@
 
 **File Upload:** Upload the source data json  files to HDFS in the /tmp directory
 
-Instructions:
-1. Please follow this [tutorial](https://community.hortonworks.com/articles/1282/sample-hdfnifi-flow-to-push-tweets-into-solrbanana.html) to build the Solr collection 'tweets'
-
-2. Upload the notebook (JSON File) to Apache Zeppelin
+![SBIR](https://s11759.pcdn.co/wp-content/uploads/2018/04/SBIR_logo.jpg "SBIR")
 
 
 

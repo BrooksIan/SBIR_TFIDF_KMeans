@@ -36,7 +36,7 @@
 ![SBIR](https://s11759.pcdn.co/wp-content/uploads/2018/04/SBIR_logo.jpg "SBIR")
 
 ## Use Case Goal 
-The goal is to use Spark's IDF/TF model to build features for downstream models.  In this use case, we are looking at Kmeans Clustering and LSH - MinHash.
+The goal is to use Spark's IDF/TF model to build features for downstream models.  In this use case, we are looking at Kmeans Clustering and LSH - MinHash.  The data will be sourced from SBIR's funding awards from 2019, and the hashing features will only be trained on the words in the abstract section of each of awards.  Once feature engineering has been complete, the tokenized words will be based to a hashing function designed for TF/IDF and these features will be used to train a K-Means Clustering model and Locality Sensitive Hashing - MinHash model. The results of each models are listed below. 
 
 In information retrieval, tf–idf, TFIDF, or TFIDF, short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.
 
@@ -54,6 +54,7 @@ It is often used as a weighting factor in searches of information retrieval, tex
 ![FE1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/featureEng.png "Fe2")
 
 ## Option 1 - KMeans Clustering - Unsupervised ML
+Document Clustering is a common task to find similar documents based on key words or other features.  This demo uses K-Means cluster on the features created by the Spark's IF-IDF model.  This unsupervised ML approach is well suited for the data since no label data is required.  Once trained, the K-Means will return a cluster assignment for each document based on the words in the abstract.
 
 ![Kmeans3](kmeansCLusters.jpg "kmeans3")
 

@@ -78,6 +78,9 @@ Locality-Sensitive Hashing (LSH) is an algorithmic technique that hashes similar
 ![LSH1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/MinHashBuckets.png "lsh1")
 ![LSH2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/benchmark-minhashlsh-algorithm-on-spark-5-638.jpg "lsh2")
 
+### Set Search Terms
+![LSH4](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/searchTerms.png "lsh4")
+
 ### LSH - Results
 ![LSH3](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/LSH_Resutls.png "lsh3")
 

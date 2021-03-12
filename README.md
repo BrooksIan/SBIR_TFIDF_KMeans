@@ -63,7 +63,7 @@ It is often used as a weighting factor in searches of information retrieval, tex
 Show the first 20 document cluster assignment. 
 ![KMeans1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/ClusterByDocs.png "kmeans1")
 
-Display the document assigned to one particular cluster. 
+The following image displays the documents that were assigned to one particular cluster. 
 ![KMeans](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/clusterResults.png "kmeans")
 
 ## Option 2 - Locality Sensitive Hashing - MinHash

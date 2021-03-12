@@ -82,9 +82,15 @@ Locality-Sensitive Hashing (LSH) is an algorithmic technique that hashes similar
 ![LSH2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/benchmark-minhashlsh-algorithm-on-spark-5-638.jpg "lsh2")
 
 ### LSH - Set Search Terms
+
+After the LSH model has been built, we can enter search terms and find matching values.  In this example, I have used high, heat, and metal. 
+
 ![LSH4](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/searchTerms.png "lsh4")
 
 ### LSH - Results
+
+In the results image, you can see the documents that are the most common based on the search terms that were entered. 
+
 ![LSH3](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/LSH_Resutls.png "lsh3")
 
 

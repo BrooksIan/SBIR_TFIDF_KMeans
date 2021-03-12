@@ -59,8 +59,10 @@ It is often used as a weighting factor in searches of information retrieval, tex
 
 
 ### KMeans - Results
-
+Show the first 20 document cluster assignment. 
 ![KMeans1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/ClusterByDocs.png "kmeans1")
+
+Display the document assigned to one particular cluster. 
 ![KMeans](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/clusterResults.png "kmeans")
 
 ## Option 2 - Locality Sensitive Hashing - MinHash
@@ -78,7 +80,7 @@ Locality-Sensitive Hashing (LSH) is an algorithmic technique that hashes similar
 ![LSH1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/MinHashBuckets.png "lsh1")
 ![LSH2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/benchmark-minhashlsh-algorithm-on-spark-5-638.jpg "lsh2")
 
-### Set Search Terms
+### LSH - Set Search Terms
 ![LSH4](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/searchTerms.png "lsh4")
 
 ### LSH - Results

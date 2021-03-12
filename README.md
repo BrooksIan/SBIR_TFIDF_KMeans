@@ -31,16 +31,16 @@
 ![SBIR](https://s11759.pcdn.co/wp-content/uploads/2018/04/SBIR_logo.jpg "SBIR")
 
 **IDF / TF Overview:**
-![TF]("https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/TFIDF.jpg)
+![TF](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/TFIDF.jpg "tf")
 
 1. Import Data - Use the provided Jypter Notebook
 2. Prepare Text for Models - Tokeniziation
-![TF2]("https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/tfidf_detail.png")
+![TF2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/tfidf_detail.png "tf2" )
 3. 
 
 **LSH - MinHash Overview:**
-![LSH1]("https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/MinHashBuckets.png")
-![LSH2]("https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/benchmark-minhashlsh-algorithm-on-spark-5-638.jpg")
+![LSH1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/MinHashBuckets.png "tf3")
+![LSH2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/benchmark-minhashlsh-algorithm-on-spark-5-638.jpg "TF4")
 
 
 

@@ -1,5 +1,4 @@
-# Data Science In Apache Spark
-## NLP
+## Data Science In Apache Spark
 ### Using TF / IDF -> K-Means Clustering & LSH (MinHash)
 ### SBIR
 

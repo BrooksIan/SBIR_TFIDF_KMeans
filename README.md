@@ -45,6 +45,8 @@ The goal is to use Spark's IDF/TF model to build features for downstream models.
 
 ## Option 1 - KMeans Clustering - Unsupervised ML
 
+### KMeans - Results
+
 ![KMeans1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/ClusterByDocs.png "kmeans1")
 ![KMeans](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/clusterResults.png "kmeans")
 
@@ -53,6 +55,8 @@ The goal is to use Spark's IDF/TF model to build features for downstream models.
 **LSH - MinHash Overview:**
 ![LSH1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/MinHashBuckets.png "lsh1")
 ![LSH2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/benchmark-minhashlsh-algorithm-on-spark-5-638.jpg "lsh2")
+
+### LSH - Results
 ![LSH3](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/LSH_Resutls.png "lsh3")
 
 

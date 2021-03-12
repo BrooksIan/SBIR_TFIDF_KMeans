@@ -1,20 +1,21 @@
+# Imports
 from pyspark.sql import SparkSession
 from pyspark.sql import types
 from pyspark.sql import DataFrame
 
+#Init Spark
 spark  = SparkSession.builder \
     .appName("SBIR") \
     .enableHiveSupport() \
     .config("spark.hadoop.yarn.resourcemanager.principal", "ibrooks") \
     .config("spark.sql.warehouse.dir", "target/spark-warehouse") \
     .getOrCreate()
-    
+  
+#Check Spark Version  
 spark.version
 
+#Import JSON Files 
 df_WholeSetRaw = spark.read.option("multiline", "true").json("sbir-search-results*.json")
-
-#df_WholeSetRaw = spark.read.option("multiLine", "true").option("mode", "PERMISSIVE").json("/home/cdsw/sbir-search-results1.json")
-
 df_WholeSetRaw.cache()
 
 #Create Table from DataFrame
@@ -24,40 +25,41 @@ df_WholeSetRaw.cache()
 df_WholeSetRaw.printSchema()
 df_WholeSetRaw.take(1)
 
+#Using Spark Feature Engineering Tools to for NLP Use Case
 from pyspark.ml.feature import HashingTF, IDF, Tokenizer, RegexTokenizer, CountVectorizer, CountVectorizerModel
 from pyspark.ml.classification import LogisticRegression
 from pyspark.sql.functions import col, udf
 from pyspark.sql.types import IntegerType
 
+#Tokenizer Option 1
 tokenizer = Tokenizer(inputCol="abstract", outputCol="words")
 tokenized = tokenizer.transform(df_WholeSetRaw)
 
+#Tokenizer Option 2
 regexTokenizer = RegexTokenizer(inputCol="abstract", outputCol="words", pattern="\\\W+")
 # alternatively, pattern="\\w+", gaps(False)
 regexTokenized = regexTokenizer.transform(df_WholeSetRaw)
 
+#Count Tokens for Common Words
 countTokens = udf(lambda words: len(words), IntegerType())
-
-#tokenized.select("abstract", "words")\
-#    .withColumn("tokens", countTokens(col("words"))).show(truncate=False)
 
 regexTokenized.select("abstract", "words") \
     .withColumn("tokens", countTokens(col("words"))).show(truncate=False)
-  
-  
-#TFtokenizer = RegexTokenizer(inputCol="abstract", outputCol="words", pattern="\\W+").setGaps("false")
 
-#TFwordsData = TFtokenizer.transform(df_WholeSetRaw)
-
+#Configure CountVectorizer Model  
 cvModel = CountVectorizer(inputCol="words", outputCol="rawFeatures", minDF=4,  vocabSize=100000).fit(tokenized)
 
+#Configure HashingTF Model  
 hashingTF = HashingTF(inputCol="words", outputCol="rawFeatures", numFeatures=400)
-  
-TFfeaturizedData = cvModel.transform(regexTokenized)
+
+#Build Featured Training Sets
+CVfeaturizedData = cvModel.transform(regexTokenized)
 TFfeaturizedData = hashingTF.transform(regexTokenized)
 
+#Configure IDF/TF Model
 idf = IDF(inputCol="rawFeatures", outputCol="features")
 
+#Fit IDF/TF Model to Featurized Training Setd
 idfModel = idf.fit(TFfeaturizedData)
 rescaledData = idfModel.transform(TFfeaturizedData)
 rescaledData.select("abstract","features").show()
@@ -65,16 +67,13 @@ rescaledData.select("abstract","features").show()
 #rescaledData.select("features").createOrReplaceTempView("TFIDF")
 #rescaledData.show(truncate=False)
 
+#KMeans - Clustering on Hashed Tokens 
 from pyspark.ml.clustering import KMeans
 from pyspark.ml.evaluation import ClusteringEvaluator
 from pyspark.sql.functions import lit
 
-#from pyspark.mllib.linagl import Vectors
-
+#Set the number of clusters (Play around with this value)
 NumberOfClusters = 128
-
-#Create a new feature vector to include a column for furure prediction 
-#DF_TestSet = rescaledData.withColumn("prediction", lit('0').cast('int'))
 
 #Create the K-Means model
 kmeans = KMeans().setK(NumberOfClusters).setSeed(1).setFeaturesCol("features").setPredictionCol("prediction")
@@ -84,13 +83,14 @@ model = kmeans.fit(rescaledData)
 
 # Make predictions
 predictions = model.transform(rescaledData)
+
 # Evaluate clustering by computing Silhouette score
 evaluator = ClusteringEvaluator()
 
 silhouette = evaluator.evaluate(predictions)
 print("Silhouette with squared euclidean distance = " + str(silhouette))
 
-# Shows the result.
+# Shows the Clusering results
 centers = model.clusterCenters()
 print("Cluster Centers: ")
 for center in centers:
@@ -99,31 +99,36 @@ for center in centers:
 print("Documents by Cluster")
 predictions.select("award_title","prediction").show()
 
+#Print a clusters members out
 predictions.filter("prediction =13").select("agency","award_title","research_keywords").show()
 
-
+#MinHash LSH Example
 from pyspark.ml.linalg import Vectors
 from pyspark.ml.feature import MinHashLSH
 
+#Set Vocab Size - Good value to play around with
 vocabSize = 10000
 
+#Build MinHash Model
 mh = MinHashLSH().setNumHashTables(vocabSize).setInputCol("rawFeatures").setOutputCol("hashValues")
 MHmodel = mh.fit(rescaledData)
 MHmodel.transform(rescaledData).show()
 
+#Find Valus for Keyword Search
 keyVal1 = cvModel.vocabulary.index("high")
 keyVal2 = cvModel.vocabulary.index("heat")
 keyVal3 = cvModel.vocabulary.index("metal")
 
-
+#Build Keys 
 One_key = Vectors.sparse(vocabSize, [200], [1.0])
 Two_key = Vectors.sparse(vocabSize, [200, 398], [1.0, 1.0])
 Three_key = Vectors.sparse(vocabSize, [24, 200, 398], [1.0, 1.0, 1.0])
 
+#Number of Search Results
 k = 40
 
-DF_NNMatched = MHmodel.approxNearestNeighbors(rescaledData, Three_key, k)
-DF_NNMatched.cache()
-DF_NNMatched.select("agency","award_title","research_keywords","distCol").show() #truncate=False
-#DF_NNMatched.select("award_title","distCol").write.json("/tmp/1LSHResults.json")
+#Find Matched Documents
+DF_Matched = MHmodel.approxNearestNeighbors(rescaledData, Three_key, k)
+DF_Matched.cache()
+DF_Matched.select("agency","award_title","research_keywords","distCol").show() #truncate=False
 

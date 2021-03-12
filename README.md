@@ -67,7 +67,7 @@ Locality-Sensitive Hashing (LSH) is an algorithmic technique that hashes similar
 
 ### Applications
 
-* Near-duplicate detection[7]
+* Near-duplicate detection
 * Audio similarity identification
 * Nearest neighbor search
 * Audio fingerprint

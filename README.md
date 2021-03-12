@@ -70,7 +70,7 @@ Display the document assigned to one particular cluster.
 
 Locality-Sensitive Hashing (LSH) is an algorithmic technique that hashes similar input items into the same "buckets" with high probability.  Since similar items end up in the same buckets, this technique can be used for data clustering and nearest neighbor search. It differs from conventional hashing techniques in that hash collisions are maximized, not minimized.
 
-### Applications
+### Common LSH Applications
 
 * Near-duplicate detection
 * Audio similarity identification

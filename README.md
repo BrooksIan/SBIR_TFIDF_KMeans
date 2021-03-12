@@ -1,11 +1,12 @@
 ## Data Science In Apache Spark
+## Natural Language Processing Use Case
 ### Using TF / IDF -> K-Means Clustering & LSH (MinHash)
-### SBIR
+### On Data From Small Business Innovation Research (SBIR)
 
 **Language**: Scala and Python
 
 **Requirements**: 
-- Spark 2.x
+- Spark 2.4.X (Or Greater)
 
 **Author**: Ian Brooks
 
@@ -33,17 +34,18 @@
 **IDF / TF Overview:**
 ![TF](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/TFIDF.jpg "tf")
 
-1. Import Data - Use the provided Jypter Notebook
+##Import Data - Use the provided Jypter Notebook
 
-2. Prepare Text for Models - Tokeniziation
+##Tokeniziation - Tokenize the text and use as features for models  
 ![FE2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/tfidf_detail.png "tf2" )
 ![FE1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/featureEng.png "Fe2")
 
-3. KMeans Clustering - Unsupervised ML
+##Option 1 - KMeans Clustering - Unsupervised ML
+
 ![KMeans1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/ClusterByDocs.png "kmeans1")
 ![KMeans](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/clusterResults.png "kmeans")
 
-4. Locality Sensitive Hashing - MinHash
+##Option 2 - Locality Sensitive Hashing - MinHash
 
 **LSH - MinHash Overview:**
 ![LSH1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/MinHashBuckets.png "lsh1")

@@ -83,7 +83,7 @@ Locality-Sensitive Hashing (LSH) is an algorithmic technique that hashes similar
 
 ### LSH - Set Search Terms
 
-After the LSH model has been built, we can enter search terms and find matching values.  In this example, I have used high, heat, and metal. 
+After the LSH model has been built, we can enter search terms and find matching values.  In this example, I have used the search terms: high, heat, and metal. 
 
 ![LSH4](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/searchTerms.png "lsh4")
 

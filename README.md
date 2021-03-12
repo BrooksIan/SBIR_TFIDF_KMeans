@@ -15,7 +15,7 @@
 
 **File Upload:** Upload the source data json  files to HDFS in the /tmp directory
 
-**Links:**
+
 *[Term Frequency–Inverse Document Frequency](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
 *[PySpark: CountVectorizer|HashingTF](https://towardsdatascience.com/countvectorizer-hashingtf-e66f169e2d4e)
 *[Spark API- Feature Extractors](https://spark.apache.org/docs/2.2.3/ml-features.html#countvectorizer)

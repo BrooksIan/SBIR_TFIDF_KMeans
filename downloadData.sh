@@ -1,0 +1,2 @@
+wget https://raw.githubusercontent.com/BrooksIan/SBIR_TFIDF_KMeans/master/sbir-search-results1.json -O sbir-search-results1.json
+wget https://raw.githubusercontent.com/BrooksIan/SBIR_TFIDF_KMeans/master/sbir-search-results2.json -O sbir-search-results2.json

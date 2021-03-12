@@ -59,6 +59,7 @@ It is often used as a weighting factor in searches of information retrieval, tex
 
 
 ### KMeans - Results
+
 Show the first 20 document cluster assignment. 
 ![KMeans1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/ClusterByDocs.png "kmeans1")
 

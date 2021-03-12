@@ -52,6 +52,10 @@ It is often used as a weighting factor in searches of information retrieval, tex
 
 ## Import Data - Use the provided Jypter Notebook or run downloadData.sh
 
+```bash
+./downloadData.sh
+```
+
 ## Tokeniziation - Tokenize the text and use as features for models  
 ![FE2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/tfidf_detail.png "tf2" )
 ![FE1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/featureEng.png "Fe2")

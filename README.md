@@ -35,8 +35,13 @@
 
 ![SBIR](https://s11759.pcdn.co/wp-content/uploads/2018/04/SBIR_logo.jpg "SBIR")
 
-## Use Case Goal 
-The goal is to use Spark's IDF/TF model to build features for downstream models.  In this use case, we are looking at Kmeans Clustering and LSH - MinHash.  The data will be sourced from SBIR's funding awards from 2019, and the hashing features will only be trained on the words in the abstract section of each of awards.  Once feature engineering has been complete, the tokenized words will be based to a hashing function designed for TF/IDF and these features will be used to train a K-Means Clustering model and Locality Sensitive Hashing - MinHash model. The results of each models are listed below. 
+## Use Case Goals
+The goal is to use Spark's IDF/TF model to build features for downstream models.  In this use case, we are looking at Kmeans Clustering and LSH - MinHash.  The data will be sourced from SBIR's funding awards from 2019, and the hashing features will only be trained on the words in the abstract section of each of awards.  
+
+Once feature engineering has been complete, the tokenized words will be based to a hashing function designed for TF/IDF and these features will be used to train a K-Means Clustering model and Locality Sensitive Hashing - MinHash model. The results of each models are listed below. 
+
+## TF-IDF
+![TF](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/TFIDF.jpg "tf")
 
 In information retrieval, tf–idf, TFIDF, or TFIDF, short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.
 
@@ -44,8 +49,6 @@ It is often used as a weighting factor in searches of information retrieval, tex
 
 ![WC](word-clouds.png "WC")
 
-**IDF / TF Overview:**
-![TF](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/TFIDF.jpg "tf")
 
 ## Import Data - Use the provided Jypter Notebook or run downloadData.sh
 

@@ -30,5 +30,19 @@
 
 ![SBIR](https://s11759.pcdn.co/wp-content/uploads/2018/04/SBIR_logo.jpg "SBIR")
 
+**IDF / TF Overview:**
+![TF]("TFIDF.jpg")
+
+1. Import Data - Use the provided Jypter Notebook
+2. Prepare Text for Models - Tokeniziation
+![TF2]("tfidf_detail.png")
+3. 
+
+**LSH - MinHash Overview:**
+![LSH1]("MinHashBuckets.png")
+![LSH2]("benchmark-minhashlsh-algorithm-on-spark-5-638.jpg")
+
+
+
 
 

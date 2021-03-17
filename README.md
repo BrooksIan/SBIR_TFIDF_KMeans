@@ -3,7 +3,7 @@
 ### Using TF / IDF -> K-Means Clustering & LSH (MinHash)
 ### On Data From Small Business Innovation Research (SBIR)
 
-[SBIR Search Site](https://www.sbir.gov/sbirsearch/award/all)
+![SBIR](https://s11759.pcdn.co/wp-content/uploads/2018/04/SBIR_logo.jpg "SBIR")
 
 **Language**: Scala and Python
 
@@ -17,8 +17,9 @@
 ## Project Goals
 The goal is to use Open Source tools to build a Natural Language Processing (NLP) model for Inverse Document Frequency / Term Frequency (IDF/TF) for the purpose of discovering documents that are related to each other.  In this project, the IDF/TF model will be used as to create features, from text strings in the original documents, that represent that weight of each word term in the corpus of the text documents.  
 
-
 ## Source of Datasets 
+
+[SBIR Search Site](https://www.sbir.gov/sbirsearch/award/all)
 
 The data will be sourced from SBIR's funding awards from 2019, and the hashing features will only be trained on the words in the abstract section of each of awards.
 
@@ -55,8 +56,6 @@ Once these features have been created, they can be used to train downstream Mach
 
 ![NB](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/notebook.png)
 
-
-
 ## Additional Information Links
 * [Apache Spark](https://spark.apache.org/)
 * [Term Frequency–Inverse Document Frequency](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
@@ -72,22 +71,10 @@ Once these features have been created, they can be used to train downstream Mach
 * [Read multiline JSON in Apache Spark](https://stackoverflow.com/questions/38545850/read-multiline-json-in-apache-spark)
 * [Effectively Pre-processing the Text Data Part 1: Text Cleaning](https://towardsdatascience.com/effectively-pre-processing-the-text-data-part-1-text-cleaning-9ecae119cb3e)
 
-
-![SBIR](https://s11759.pcdn.co/wp-content/uploads/2018/04/SBIR_logo.jpg "SBIR")
-
-
-
-
-
-
-
-
-
 ## Option 1 - Unsupervised ML KMeans Clustering - Unsupervised ML
 Document Clustering is a common task to find similar documents based on key words or other features.  This demo uses K-Means cluster on the features created by the Spark's IF-IDF model.  This unsupervised ML approach is well suited for the data since no label data is required.  Once trained, the K-Means will return a cluster assignment for each document based on the words in the abstract.
 
 ![Kmeans3](kmeansCLusters.jpg "kmeans3")
-
 
 ### KMeans - Results
 
@@ -123,8 +110,3 @@ After the LSH model has been built, we can enter search terms and find matching 
 In the results image, you can see the documents that are the most common based on the search terms that were entered. 
 
 ![LSH3](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/LSH_Resutls.png "lsh3")
-
-
-
-
-

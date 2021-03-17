@@ -74,10 +74,6 @@ In the following image, the results displays the documents that were assigned to
 
 ## Option 2 - Locality Sensitive Hashing - MinHash
 
-![LSH1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/MinHashBuckets.png "lsh1")
-
-This project also demonstrates the use of Locality-Sensitive Hashing (LSH), which is an algorithmic technique that hashes similar input items into the same "buckets" with high probability.  Since LSH places similar items end up in the same buckets, this technique can be used for data clustering and nearest neighbor search.  This project will use it for document clustering. 
-
 ### Common LSH Applications
 
 * Near-duplicate detection
@@ -86,10 +82,11 @@ This project also demonstrates the use of Locality-Sensitive Hashing (LSH), whic
 * Audio fingerprint
 * Digital video fingerprinting
 
+![LSH1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/MinHashBuckets.png "lsh1")
 
+This project also demonstrates the use of Locality-Sensitive Hashing (LSH), which is an algorithmic technique that hashes similar input items into the same "buckets" with high probability.  Since LSH places similar items end up in the same buckets, this technique can be used for data clustering and nearest neighbor search.  This project will use it for document clustering. 
 
-
-### LSH - Set Search Terms
+### Using LSH On Search Terms
 
 After the LSH model has been built, we can enter search terms and find matching values.  In this example, I have used the search terms: high, heat, and metal. 
 
@@ -97,7 +94,7 @@ After the LSH model has been built, we can enter search terms and find matching 
 
 ### LSH - Results
 
-In the results image, you can see the documents that are the most common based on the search terms that were entered. 
+In the following image, you can see the documents that are the most common based on the search terms that were entered. 
 
 ![LSH3](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/LSH_Resutls.png "lsh3")
 

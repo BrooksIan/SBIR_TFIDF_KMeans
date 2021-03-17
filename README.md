@@ -3,6 +3,8 @@
 ### Using TF / IDF -> K-Means Clustering & LSH (MinHash)
 ### On Data From Small Business Innovation Research (SBIR)
 
+[SBIR Search Site](https://www.sbir.gov/sbirsearch/award/all)
+
 **Language**: Scala and Python
 
 **Requirements**: 
@@ -19,8 +21,6 @@ The goal is to use Open Source tools to build a Natural Language Processing (NLP
 ## Source of Datasets 
 
 The data will be sourced from SBIR's funding awards from 2019, and the hashing features will only be trained on the words in the abstract section of each of awards.
-
-[SBIR Search Site](https://www.sbir.gov/sbirsearch/award/all)
 
 **Addtional Information**: The Small Business Innovation Research (SBIR) program is a highly competitive program that encourages domestic small businesses to engage in Federal Research/Research and Development (R/R&D) that has the potential for commercialization. 
 

@@ -15,7 +15,16 @@
 ## Project Goals
 The goal is to use Open Source tools to build a Natural Language Processing (NLP) model for Inverse Document Frequency / Term Frequency (IDF/TF) for the purpose of discovering documents that are related to each other.  In this project, the IDF/TF model will be used as to create features, from text strings in the original documents, that represent that weight of each word term in the corpus of the text documents.  
 
-### Background Information - Inverse Document Frequency / Term Frequency (TF-IDF)
+
+## Source of Datasets 
+
+The data will be sourced from SBIR's funding awards from 2019, and the hashing features will only be trained on the words in the abstract section of each of awards.
+
+[SBIR Search Site](https://www.sbir.gov/sbirsearch/award/all)
+
+**Addtional Information**: The Small Business Innovation Research (SBIR) program is a highly competitive program that encourages domestic small businesses to engage in Federal Research/Research and Development (R/R&D) that has the potential for commercialization. 
+
+## Background Information - Inverse Document Frequency / Term Frequency (TF-IDF)
 ![TF](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/TFIDF.jpg "tf")
 
 In information retrieval, tf–idf, TFIDF, or TFIDF, short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.
@@ -24,19 +33,25 @@ It is often used as a weighting factor in searches of information retrieval, tex
 
 ![WC](word-clouds.png "WC")
 
-##Model Building
+## Tokeniziation - Tokenize the text and use as features for models  
+![FE2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/tfidf_detail.png "tf2" )
+![FE1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/featureEng.png "Fe2")
+
+## Model Building
 
 Once these features have been created, they can be used to train downstream Machine Learning models or Hashing based models that are designed to find similar documentd.  This project will be providing an example of Unsuperivsed ML K-Means Clustering and Locality-Sensitive Hashing (LSH) - MinHash.  They were selected because they are both provided in Aapche Spark ML Lib.
 
- 
+ ## Project Build
 
-## Source of Datasets 
+ ### Import Data - Use the provided Jypter Notebook or run downloadData.sh
 
-The data will be sourced from SBIR's funding awards from 2019, and the hashing features will only be trained on the words in the abstract section of each of awards.
+```bash
+./downloadData.sh
+```
 
-[SBIR Search Site](https://www.sbir.gov/sbirsearch/award/all)
+![NB](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/notebook.png)
 
-**Addtional Information**: The Small Business Innovation Research (SBIR) program is a highly competitive program that encourages domestic small businesses to engage in Federal Research/Research and Development (R/R&D) that has the potential for commercialization. Through a competitive awards-based program, SBIR enables small businesses to explore their technological potential and provides the incentive to profit from its commercialization. By including qualified small businesses in the nation's R&D arena, high-tech innovation is stimulated and the United States gains entrepreneurial spirit as it meets its specific research and development needs.
+
 
 ## Additional Information Links
 * [Apache Spark](https://spark.apache.org/)
@@ -60,17 +75,9 @@ The data will be sourced from SBIR's funding awards from 2019, and the hashing f
 
 
 
-## Import Data - Use the provided Jypter Notebook or run downloadData.sh
 
-```bash
-./downloadData.sh
-```
 
-![NB](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/notebook.png)
 
-## Tokeniziation - Tokenize the text and use as features for models  
-![FE2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/tfidf_detail.png "tf2" )
-![FE1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/featureEng.png "Fe2")
 
 ## Option 1 - Unsupervised ML KMeans Clustering - Unsupervised ML
 Document Clustering is a common task to find similar documents based on key words or other features.  This demo uses K-Means cluster on the features created by the Spark's IF-IDF model.  This unsupervised ML approach is well suited for the data since no label data is required.  Once trained, the K-Means will return a cluster assignment for each document based on the words in the abstract.

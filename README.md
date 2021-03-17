@@ -13,17 +13,33 @@
 **Follow** [LinkedIn - Ian Brooks PhD] (https://www.linkedin.com/in/ianrbrooksphd/)
 
 ## Project Goals
-The goal is to use Spark's IDF/TF model to build features for downstream models.  In this use case, we are looking at Kmeans Clustering and LSH - MinHash.  The data will be sourced from SBIR's funding awards from 2019, and the hashing features will only be trained on the words in the abstract section of each of awards.  
+The goal is to use Open Source tools to build a Natural Language Processing (NLP) model for Inverse Document Frequency / Term Frequency (IDF/TF) for the purpose of discovering documents that are related to each other.  In this project, the IDF/TF model will be used as to create features, from text strings in the original documents, that represent that weight of each word term in the corpus of the text documents.  
 
-Once feature engineering has been complete, the tokenized words will be based to a hashing function designed for TF/IDF and these features will be used to train a K-Means Clustering model and Locality Sensitive Hashing - MinHash model. The results of each models are listed below. 
+### Background Information - Inverse Document Frequency / Term Frequency (TF-IDF)
+![TF](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/TFIDF.jpg "tf")
 
-## Source of Data Datasets 
+In information retrieval, tf–idf, TFIDF, or TFIDF, short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.
+
+It is often used as a weighting factor in searches of information retrieval, text mining, and user modeling. The tf–idf value increases proportionally to the number of times a word appears in the document and is offset by the number of documents in the corpus that contain the word, which helps to adjust for the fact that some words appear more frequently in general. tf–idf is one of the most popular term-weighting schemes today.
+
+![WC](word-clouds.png "WC")
+
+##Model Building
+
+Once these features have been created, they can be used to train downstream Machine Learning models or Hashing based models that are designed to find similar documentd.  This project will be providing an example of Unsuperivsed ML K-Means Clustering and Locality-Sensitive Hashing (LSH) - MinHash.  They were selected because they are both provided in Aapche Spark ML Lib.
+
+ 
+
+## Source of Datasets 
+
+The data will be sourced from SBIR's funding awards from 2019, and the hashing features will only be trained on the words in the abstract section of each of awards.
 
 [SBIR Search Site](https://www.sbir.gov/sbirsearch/award/all)
 
 **Addtional Information**: The Small Business Innovation Research (SBIR) program is a highly competitive program that encourages domestic small businesses to engage in Federal Research/Research and Development (R/R&D) that has the potential for commercialization. Through a competitive awards-based program, SBIR enables small businesses to explore their technological potential and provides the incentive to profit from its commercialization. By including qualified small businesses in the nation's R&D arena, high-tech innovation is stimulated and the United States gains entrepreneurial spirit as it meets its specific research and development needs.
 
 ## Additional Information Links
+* [Apache Spark](https://spark.apache.org/)
 * [Term Frequency–Inverse Document Frequency](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
 * [PySpark: CountVectorizer|HashingTF](https://towardsdatascience.com/countvectorizer-hashingtf-e66f169e2d4e)
 * [A Friendly Introduction to Text Clustering](https://towardsdatascience.com/a-friendly-introduction-to-text-clustering-fa996bcefd04)
@@ -41,14 +57,7 @@ Once feature engineering has been complete, the tokenized words will be based to
 ![SBIR](https://s11759.pcdn.co/wp-content/uploads/2018/04/SBIR_logo.jpg "SBIR")
 
 
-## TF-IDF
-![TF](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/TFIDF.jpg "tf")
 
-In information retrieval, tf–idf, TFIDF, or TFIDF, short for term frequency–inverse document frequency, is a numerical statistic that is intended to reflect how important a word is to a document in a collection or corpus.
-
-It is often used as a weighting factor in searches of information retrieval, text mining, and user modeling. The tf–idf value increases proportionally to the number of times a word appears in the document and is offset by the number of documents in the corpus that contain the word, which helps to adjust for the fact that some words appear more frequently in general. tf–idf is one of the most popular term-weighting schemes today.
-
-![WC](word-clouds.png "WC")
 
 
 ## Import Data - Use the provided Jypter Notebook or run downloadData.sh
@@ -63,7 +72,7 @@ It is often used as a weighting factor in searches of information retrieval, tex
 ![FE2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/tfidf_detail.png "tf2" )
 ![FE1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/featureEng.png "Fe2")
 
-## Option 1 - KMeans Clustering - Unsupervised ML
+## Option 1 - Unsupervised ML KMeans Clustering - Unsupervised ML
 Document Clustering is a common task to find similar documents based on key words or other features.  This demo uses K-Means cluster on the features created by the Spark's IF-IDF model.  This unsupervised ML approach is well suited for the data since no label data is required.  Once trained, the K-Means will return a cluster assignment for each document based on the words in the abstract.
 
 ![Kmeans3](kmeansCLusters.jpg "kmeans3")

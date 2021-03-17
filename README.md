@@ -74,7 +74,9 @@ In the following image, the results displays the documents that were assigned to
 
 ## Option 2 - Locality Sensitive Hashing - MinHash
 
-Locality-Sensitive Hashing (LSH) is an algorithmic technique that hashes similar input items into the same "buckets" with high probability.  Since similar items end up in the same buckets, this technique can be used for data clustering and nearest neighbor search. It differs from conventional hashing techniques in that hash collisions are maximized, not minimized.
+![LSH1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/MinHashBuckets.png "lsh1")
+
+This project also demonstrates the use of Locality-Sensitive Hashing (LSH), which is an algorithmic technique that hashes similar input items into the same "buckets" with high probability.  Since LSH places similar items end up in the same buckets, this technique can be used for data clustering and nearest neighbor search.  This project will use it for document clustering. 
 
 ### Common LSH Applications
 
@@ -84,8 +86,8 @@ Locality-Sensitive Hashing (LSH) is an algorithmic technique that hashes similar
 * Audio fingerprint
 * Digital video fingerprinting
 
-![LSH1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/MinHashBuckets.png "lsh1")
-![LSH2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/benchmark-minhashlsh-algorithm-on-spark-5-638.jpg "lsh2")
+
+
 
 ### LSH - Set Search Terms
 

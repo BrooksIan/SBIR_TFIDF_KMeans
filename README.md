@@ -33,11 +33,15 @@ It is often used as a weighting factor in searches of information retrieval, tex
 
 ![WC](word-clouds.png "WC")
 
-## Tokeniziation - Tokenize the text and use as features for models  
+## Feature Engineering - Tokenizer
+The purpose of using TF/IDF for feature engineering is to help the downstream ML models understand the weight or imporpantace of a word or search term.  This will allow these models to find documents that are related to each other when they are trained on these values.  The TF/IDF model tokenizes the text terms, which looks like the following image. 
 ![FE2](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/tfidf_detail.png "tf2" )
+
+Using the provided PySpark code, the results of Term Frequency hashing are displayed in the following image.  
+
 ![FE1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/featureEng.png "Fe2")
 
-## Model Building
+## ML Model Building
 
 Once these features have been created, they can be used to train downstream Machine Learning models or Hashing based models that are designed to find similar documentd.  This project will be providing an example of Unsuperivsed ML K-Means Clustering and Locality-Sensitive Hashing (LSH) - MinHash.  They were selected because they are both provided in Aapche Spark ML Lib.
 

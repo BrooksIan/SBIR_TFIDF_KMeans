@@ -57,9 +57,10 @@ Once these features have been created, they can be used to train downstream Mach
 ![NB](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/notebook.png)
 
 ## Option 1 - Unsupervised ML KMeans Clustering - Unsupervised ML
-Document Clustering is a common task to find similar documents based on key words or other features.  This demo uses K-Means cluster on the features created by the Spark's IF-IDF model.  This unsupervised ML approach is well suited for the data since no label data is required.  Once trained, the K-Means will return a cluster assignment for each document based on the words in the abstract.
 
 ![Kmeans3](kmeansCLusters.jpg "kmeans3")
+
+Document Clustering is common technque used to find similar documents based on key words or other search features.  This project will demonstrate Clustering (K-Means), and find the documents that cluster with each other.  The model is trainined on the Term Frequency Hashing values, and this unsupervised ML approach is well suited for this dataset, since there is no labeled data.  Once the model has been trained, the results from K-Means will display the documents and their assigned cluster.  Keep in mind, these documents clustered together based on 2 factors: the words in their abstracts and the value of K used when the model was trained.  In K-Mean, K is the predetermined number of clusters that will be used as buckets.  
 
 ### KMeans - Results
 

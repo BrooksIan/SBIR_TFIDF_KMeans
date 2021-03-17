@@ -60,14 +60,16 @@ Once these features have been created, they can be used to train downstream Mach
 
 ![Kmeans3](kmeansCLusters.jpg "kmeans3")
 
-Document Clustering is common technque used to find similar documents based on key words or other search features.  This project will demonstrate Clustering (K-Means), and find the documents that cluster with each other.  The model is trainined on the Term Frequency Hashing values, and this unsupervised ML approach is well suited for this dataset, since there is no labeled data.  Once the model has been trained, the results from K-Means will display the documents and their assigned cluster.  Keep in mind, these documents clustered together based on 2 factors: the words in their abstracts and the value of K used when the model was trained.  In K-Mean, K is the predetermined number of clusters that will be used as buckets.  
+Document Clustering is common technque used to find similar documents based on key words or other search features.  This project will demonstrate Clustering (K-Means), and find the documents that cluster with each other.  The model is trainined on the Term Frequency Hashing values, and this unsupervised ML approach is well suited for this dataset, since there is no labeled data.  
+
+Once the model has been trained, the results from K-Means will display the documents and their assigned cluster.  Keep in mind, these documents clustered together based on 2 factors: the words in their abstracts and the value of K used when the model was trained.  In K-Mean, K is the predetermined number of clusters that will be used as buckets.  
 
 ### KMeans - Results
 
-Show the first 20 document cluster assignment. 
+In the following image, the results show the first 20 documents and their cluster assignments.  
 ![KMeans1](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/ClusterByDocs.png "kmeans1")
 
-The following image displays the documents that were assigned to one particular cluster. 
+In the following image, the results displays the documents that were assigned to one particular cluster.  This example is using cluster number lucky 13.  
 ![KMeans](https://github.com/BrooksIan/SBIR_TFIDF_KMeans/blob/master/clusterResults.png "kmeans")
 
 ## Option 2 - Locality Sensitive Hashing - MinHash
